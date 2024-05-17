@@ -16,23 +16,38 @@
 }
 
 .light-theme .theme-button {
-    color: #6653d9;
-    border: none;
+    color: #17161a;
+    border: #17161a;
+    background-color: #4CAF50;
+    cursor: pointer;
+    border: solid 5px;
+    border-radius: 10%/30%;
 }
 
 .light-theme .theme-button:focus,
-.light-theme .theme-button:hover {
+.light-theme .theme-button:hover,
+.light-theme .button:focus,
+.light-theme .button:hover {
   color: #ffffff;
-  background-color: #6653d9;
+  background-color: #4CAF50;
 }
+
 
 .light-theme .button {
-    color: #9484f2;
+    color: #17161a;
     border: #17161a;
-
+    background-color: #4CAF50;
+    cursor: pointer;
+    border: solid 10px;
+    border-radius: 10%/30%;
 }
 
+
+
+
+
 /* Тёмная тема */
+
 .dark-theme {
     color: #f2f2f2;
     background-color: #17161a;
@@ -48,21 +63,41 @@
 }
 
 .dark-theme .theme-button {
-    color: #9484f2;
-    border: 1px solid #9484f2;
+    color: #f2f2f2;
+    border: #f2f2f2;
+    background-color: #6653d9;
+    cursor: pointer;
+    border: solid 5px;
+    border-radius: 10%/30%;
 
 }
 
 .dark-theme .button {
-    color: #9484f2;
+    color: #f2f2f2;
     border: #f2f2f2;
+    background-color: #6653d9;
+    cursor: pointer;
+    border: solid 10px;
+    border-radius: 10%/30%;
 
 }
 
 .dark-theme .theme-button:focus,
-.dark-theme .theme-button:hover {
+.dark-theme .theme-button:hover,
+.dark-theme .button:focus,
+.dark-theme .button:hover {
   color: #17161a;
   background-color: #9484f2;
+}
+
+.theme-button {
+    position: absolute;
+    width: 10%;
+    margin-left: 45%;
+    top: 7%;
+    font-size: 12px;
+    border-radius: 2px;
+    background-color: transparent;
 }
 
 body {
@@ -76,6 +111,7 @@ body {
 }
 
 h1 {
+    width: 70%;
     text-align: center;
     margin-bottom: 20px;
 }
@@ -86,7 +122,7 @@ h1 {
 
 button {
     padding: 10px 20px;
-    background-color: #4CAF50;
+    /* background-color: #4CAF50; */
     color: white;
     cursor: pointer;
     border: solid 10px;
