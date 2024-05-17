@@ -20,6 +20,6 @@ public class AuthorizationDataClient {
 
     public Long sendDataRegistration(RegistrationDataDTO registrationDataDTO) {
         log.info("Скорее всего забыл заменить uri");
-        return restClient.post().uri("Поменять юри").contentType(MediaType.APPLICATION_JSON).body(registrationDataDTO).retrieve().body(Long.class);
+        return restClient.post().uri("/main/registration").contentType(MediaType.APPLICATION_JSON).body(registrationDataDTO).retrieve().body(Long.class);
     }
 }
