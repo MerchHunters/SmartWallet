@@ -17,4 +17,14 @@ public class UserService {
     public User findByLoginAndPassword(String login, String password) {
         return userRepository.findByLoginAndPassword(login, password);
     }
+
+    public Long CreateByLoginAndPassword(String login, String password) {
+
+        User user = new User();
+        user.setLogin(login);
+        user.setPassword(password);
+        return userRepository.save(user).getId();
+
+    }
+
 }

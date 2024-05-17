@@ -1,4 +1,4 @@
-package com.example.clientapp.dto;
+package com.example.business.logic.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,4 +11,3 @@ public class RegistrationDataDTO {
     private String login;
     private String password;
 }
-
