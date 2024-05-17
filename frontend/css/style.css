@@ -115,6 +115,10 @@ h1 {
     text-align: center;
     margin-bottom: 20px;
 }
+h2, .h2{
+    text-align: center;
+    margin-bottom: 20px; 
+}
 
 .wallets, .transactions, .goals, .reports, .cashbacks {
     margin-bottom: 20px;
