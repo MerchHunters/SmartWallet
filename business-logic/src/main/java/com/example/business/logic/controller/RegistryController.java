@@ -5,6 +5,7 @@ import com.example.business.logic.dto.RegistrationDataDTO;
 import com.example.business.logic.service.UserService;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,6 +21,7 @@ public class RegistryController {
 
     private final UserService userService;
 
+    @Autowired
     public RegistryController(UserService userService) {
         this.userService = userService;
     }

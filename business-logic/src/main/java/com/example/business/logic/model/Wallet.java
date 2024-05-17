@@ -27,5 +27,5 @@ public class Wallet {
     @Column(name = "is_archive")
     private Boolean isArchive;
 
-    private List<Object> cashbackes;
+//    private List<Object> cashbackes;
 }
