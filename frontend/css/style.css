@@ -15,7 +15,8 @@
     color: #6653d9;
 }
 
-.light-theme .theme-button {
+.light-theme .theme-button,
+.light-theme .regist_button {
     color: #17161a;
     border: #17161a;
     background-color: #4CAF50;
@@ -27,7 +28,9 @@
 .light-theme .theme-button:focus,
 .light-theme .theme-button:hover,
 .light-theme .button:focus,
-.light-theme .button:hover {
+.light-theme .button:hover,
+.light-theme .regist_button:focus,
+.light-theme .regist_button:hover {
   color: #ffffff;
   background-color: #4CAF50;
 }
@@ -62,7 +65,8 @@
     color: #9484f2;
 }
 
-.dark-theme .theme-button {
+.dark-theme .theme-button,
+.dark-theme .regist_button {
     color: #f2f2f2;
     border: #f2f2f2;
     background-color: #6653d9;
@@ -85,12 +89,14 @@
 .dark-theme .theme-button:focus,
 .dark-theme .theme-button:hover,
 .dark-theme .button:focus,
-.dark-theme .button:hover {
+.dark-theme .button:hover,
+.dark-theme .regist_button:focus,
+.dark-theme .regist_button:hover {
   color: #17161a;
   background-color: #9484f2;
 }
 
-.theme-button {
+.theme-button, .regist_button {
     position: relative;
     width: 18%;
     margin-left: 30%;
@@ -124,6 +130,10 @@ h2, .h2{
     margin-bottom: 20px;
 }
 
+.button{
+    position: relative;
+}
+
 button {
     padding: 10px 20px;
     /* background-color: #4CAF50; */
@@ -131,6 +141,7 @@ button {
     cursor: pointer;
     border: solid 10px;
     border-radius: 10%/30%;
+    
 }
 
 #walletsList, #transactionsList, #goalsList, #cashbacksList {
