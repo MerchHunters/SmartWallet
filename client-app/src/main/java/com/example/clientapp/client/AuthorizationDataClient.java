@@ -11,6 +11,8 @@ import org.springframework.web.client.RestClient;
 import java.util.List;
 
 
+// регестрация
+// Service
 @Slf4j
 public class AuthorizationDataClient {
 

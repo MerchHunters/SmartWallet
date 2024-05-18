@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-
+    
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Вход</title>
+    <title>Авторизация</title>
     <style>.light-theme {
     color: #333333;
     background-color: #eae9f2;
@@ -101,36 +101,60 @@ button {
     border: 1px solid #ccc;
     padding: 10px;
 }
-    </style>
 
+.h2_index{
+    text-align: left;
+    padding-left: 5%;
+}
+
+.button_wallet{
+    position: relative;
+    margin-left: 5%;
+    padding: 2% 5% 2% 5%;
+}
+
+ol{
+    border: solid 10px;
+    border-radius: 5%/15%;
+}
+
+.li{
+    /* width: 20%; */
+    margin-bottom: 2%;
+}
+
+b{
+    /* padding: 10%; */
+    width: 20%;
+    margin-left: 10%;
+    position: relative;
+}
+
+    </style>
+   
 </head>
 <body class="page light-theme">
-
+    
     <div class="container" >
         <header class="page-header">
             <div class="container">
                <h1 style="width: 100%;">Страница входа
-                <a class="regist_button" type="button" style="top: 5%; width: 4%; margin-left: 27%; ">Вход</a>
-                <a class="regist_button" type="button" style="top: 10%; width: 6%; margin-left: 0%; ">Регистрация</a>
-                <button class="theme-button" type="button" style="top: 5%; width: 9%; margin-left: 0%;  padding: 2px 5px;">Тема</button>
+                <a class="regist_button" type="button" style="top: 10%; width: 6%; margin-left: 7%; font-size: 14px;">Нет аккаунта</a>
+                <button class="theme-button" type="button" style="top: 5%; width: 9%; margin-left: 0%;  padding: 2px 5px;">Тема</button> 
                 </h1>
-            </div>
+            </div>        
     </header>
      <main>
-        <p class="auto_massage">Введите данные для входа</p>
         <h2>Логин</h2>
         <section class="h2"><input type="text" ></section>
         <h2>Пароль</h2>
-        <section class="h2"><input id="password_chek" type="text" ></section>
-        <button id="butt" class="button subscription" type="submit"  style=" margin-left: 70%;">Войти</button>
+        <section class="h2"><input type="text" ></section>
+        <button class="button"  style=" margin-left: 70%;">Войти</button>
     </main>
 
     </div>
 
-
-    <script>
-
-        let page = document.querySelector('.page');
+    let page = document.querySelector('.page');
     let themeButton = document.querySelector('.theme-button');
 
     themeButton.onclick = function() {
@@ -139,6 +163,5 @@ button {
     };
 
 
-    </script>
 </body>
 </html>
