@@ -16,7 +16,6 @@ import org.springframework.web.util.UriComponentsBuilder;
 @RestController
 @RequestMapping("main/registration")
 @Slf4j
-
 public class RegistryController {
 
     private final UserService userService;
