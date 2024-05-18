@@ -1,5 +1,6 @@
 package com.example.business.logic.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,8 +18,9 @@ public class Wallet {
     @Column(name = "wallet_id")
     private Long id;
 
-    @Column(name = "user_id")
-    private Long userId;
+    @ManyToOne
+    @JoinColumn(name = "client_id")
+    private Client client;
 
     private String name;
 
@@ -29,8 +31,13 @@ public class Wallet {
 
     @ManyToMany
     @JoinTable(
-            name = "cashbackes",
+            name = "cashbackList",
             joinColumns = @JoinColumn(name = "wallet_id"),
             inverseJoinColumns = @JoinColumn(name = "cashback_id"))
     private Set<Cashback> cashbackes;
+
+
+
+    @OneToMany(mappedBy = "wallet")
+    private Set<Transaction> transactions;
 }

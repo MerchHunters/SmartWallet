@@ -32,4 +32,10 @@ public class Transaction {
 
     @Column(name = "is_with_cashback")
     private Boolean isWithCashback;
+
+
+    @ManyToOne
+    @JoinColumn(name = "wallet_id")
+    private Wallet wallet;
+
 }

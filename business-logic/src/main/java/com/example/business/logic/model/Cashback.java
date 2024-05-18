@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Set;
+
 @Entity
 @Data
 @AllArgsConstructor
@@ -22,6 +24,6 @@ public class Cashback {
     private String percent;
 
     @ManyToMany(mappedBy = "cashbackes")
-    private Wallet wallet;
+    private Set<Wallet> walletSet;
 
 }
