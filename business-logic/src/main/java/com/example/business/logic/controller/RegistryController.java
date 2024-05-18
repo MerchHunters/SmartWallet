@@ -2,6 +2,7 @@ package com.example.business.logic.controller;
 
 
 import com.example.business.logic.dto.RegistrationDataDTO;
+import com.example.business.logic.dto.ResponseDTO;
 import com.example.business.logic.exception.PasswordNotCorrectException;
 import com.example.business.logic.service.UserService;
 import jakarta.validation.Valid;
@@ -28,18 +29,21 @@ public class RegistryController {
 
 
 
+
     @PostMapping
     public ResponseEntity<?> postUserByDTO(@Valid @RequestBody RegistrationDataDTO dto,
-                              UriComponentsBuilder uriComponentsBuilder) {
+                                           UriComponentsBuilder uriComponentsBuilder) {
 
         try {
-            return ResponseEntity.ok(userService.CreateByLoginAndPassword(
+            return ResponseEntity.ok().body(userService.CreateByLoginAndPassword(
                     dto.getLogin(), dto.getPassword(), dto.getRepeatPassword()
             ));
         } catch (PasswordNotCorrectException e) {
             log.info("return not correct password!");
-            return ResponseEntity.badRequest().body(1);
+            ResponseDTO dataDTO = new ResponseDTO(400, 1);
+            return ResponseEntity.badRequest().body(dataDTO);
         }
 
     }
 }
+

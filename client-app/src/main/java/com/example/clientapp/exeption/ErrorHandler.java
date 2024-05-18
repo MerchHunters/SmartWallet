@@ -7,8 +7,8 @@ import org.springframework.ui.Model;
 @Slf4j
 public class ErrorHandler {
 
-    public static String messageError(BadRequestException badRequestException) {
-        return switch (badRequestException.getCodeError()) {
+    public static String messageError(Integer codeError) {
+        return switch (codeError) {
             case 1 -> {
                 log.info("Код ошибки ошибки: 1. Данный логин занят");
                 yield "Данный логин занят";
@@ -22,7 +22,7 @@ public class ErrorHandler {
                 yield "Пароли не совпадают";
             }
             default -> {
-                log.info("Неизвестная ошибка: {}", badRequestException.getCodeError());
+                log.info("Неизвестная ошибка: {}", codeError );
                 yield "Произошла неизвестная ошибка";
             }
         };

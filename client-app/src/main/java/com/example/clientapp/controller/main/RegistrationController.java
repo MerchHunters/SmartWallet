@@ -38,17 +38,18 @@ public class RegistrationController {
             registrationDataDTO.setLogin("user");
             registrationDataDTO.setPassword("123");
             registrationDataDTO.setPassword("123");
+
             Long user_id = authorizationDataClient.sendDataRegistration(registrationDataDTO);
+
+
             log.info("Получили id юзера: {}", user_id);
             log.info("всё прошло успешно");
-//            model.addAttribute("user_id", user_id);
-//            return "main/wallet";
-            return null;
-        } catch (BadRequestException badRequestException) {
-            log.info("Что-то пошло не так при регистрации аккаунта");
-           String error =  ErrorHandler.messageError(badRequestException);
-            model.addAttribute("error", error);
-            return "redirect:/main/registration";
+            model.addAttribute("user_id", user_id);
+            return "main/wallet";
+
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
     }
 }
