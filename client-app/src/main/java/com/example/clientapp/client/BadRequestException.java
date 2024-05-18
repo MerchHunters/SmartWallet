@@ -8,30 +8,29 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = true)
 @Data
 public class BadRequestException extends RuntimeException{
-    private final List<String> errors;
+    private Integer codeError;
 
-
-    public BadRequestException(List<String> errors) {
-        this.errors = errors;
+    public BadRequestException(int codeError) {
+        this.codeError = codeError;
     }
 
-    public BadRequestException(String message, List<String> errors) {
+    public BadRequestException(String message, int codeError) {
         super(message);
-        this.errors = errors;
+        this.codeError = codeError;
     }
 
-    public BadRequestException(String message, Throwable cause, List<String> errors) {
+    public BadRequestException(String message, Throwable cause, int codeError) {
         super(message, cause);
-        this.errors = errors;
+        this.codeError = codeError;
     }
 
-    public BadRequestException(Throwable cause, List<String> errors) {
+    public BadRequestException(Throwable cause, int codeError) {
         super(cause);
-        this.errors = errors;
+        this.codeError = codeError;
     }
 
-    public BadRequestException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace, List<String> errors) {
+    public BadRequestException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace, int codeError) {
         super(message, cause, enableSuppression, writableStackTrace);
-        this.errors = errors;
+        this.codeError = codeError;
     }
 }
