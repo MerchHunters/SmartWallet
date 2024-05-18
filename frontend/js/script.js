@@ -10,12 +10,25 @@ themeButton.onclick = function() {
 
 
 
+butt.onclick = function() {
+    var val1 = document.getElementById('password_chek1').value;
+    var val2 = document.getElementById('password_chek2').value;
+    if (val1 == val2) {
+        alert('Вы зарегистрировались');
+    } else{
+        alert('Пароль не совпадает');
+    }    
+};
 
+let message = document.querySelector('.auto_message');
 
+let form = document.querySelector('butt');
+form.onsubmit = function(evt) {
+  // Инструкция ниже отменяет отправку данных
+  evt.preventDefault();
+  message.textContent='Форма отправлена!'
 
-
-
-
+};
 
 
 
