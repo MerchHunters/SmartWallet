@@ -13,5 +13,4 @@ public class RestClientConfig {
     public AuthorizationDataClient clientRestRegistrationData(@Value("${api.path.server}") String uri){
         return new AuthorizationDataClient(RestClient.builder().baseUrl(uri).build());
     }
-
 }

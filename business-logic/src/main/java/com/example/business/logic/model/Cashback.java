@@ -21,7 +21,7 @@ public class Cashback {
 
     private String percent;
 
-    @ManyToMany(mappedBy = "cashbackes")
-    private Wallet wallet;
+  /*  @ManyToMany(mappedBy = "cashbackes")
+    private Wallet wallet;*/
 
 }

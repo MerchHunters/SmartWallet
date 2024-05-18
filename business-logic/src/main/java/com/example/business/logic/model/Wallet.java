@@ -27,10 +27,10 @@ public class Wallet {
     @Column(name = "is_archive")
     private Boolean isArchive;
 
-    @ManyToMany
+/*    @ManyToMany
     @JoinTable(
             name = "cashbackes",
             joinColumns = @JoinColumn(name = "wallet_id"),
             inverseJoinColumns = @JoinColumn(name = "cashback_id"))
-    private Set<Cashback> cashbackes;
+    private Set<Cashback> cashbackes;*/
 }
