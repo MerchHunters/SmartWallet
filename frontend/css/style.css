@@ -114,8 +114,16 @@ ol{
     border-radius: 5%/15%;
 }
 
-li{
+.li{
+    /* width: 20%; */
     margin-bottom: 2%;
+}
+
+b{
+    /* padding: 10%; */
+    width: 20%;
+    margin-left: 10%;
+    position: relative;
 }
 
 
