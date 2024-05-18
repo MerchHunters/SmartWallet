@@ -160,6 +160,11 @@ input{
     padding: 10px;
 }
 
+.h2_index{
+    text-align: left;
+    padding-left: 5%;
+}
+
 /* #reportsContainer {
     /* CSS для отображения отчетов (графики, таблицы) */
 /* } */ 
