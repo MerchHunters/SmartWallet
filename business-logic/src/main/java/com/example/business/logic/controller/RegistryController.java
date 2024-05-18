@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
 @RestController
-@RequestMapping("main/registry")
+@RequestMapping("main/registration")
 @Slf4j
 
 public class RegistryController {

@@ -18,8 +18,8 @@ public class Transaction {
     @Column(name = "transaction_id")
     private Long id;
 
-    @Column(name = "wallet_id")
-    private Wallet walletId;
+//    @Column(name = "wallet_id")
+//    private Wallet walletId;
 
     private String category;
 
