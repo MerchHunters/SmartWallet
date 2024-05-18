@@ -20,6 +20,7 @@ public class Wallet {
 
     @ManyToOne
     @JoinColumn(name = "client_id")
+    @JsonIgnore
     private Client client;
 
     private String name;

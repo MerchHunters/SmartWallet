@@ -34,3 +34,5 @@ INSERT INTO transaction (amount, category, date_time, description, is_with_cashb
 
 ################################################
 
+select * from clients
+
