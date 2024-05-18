@@ -12,6 +12,6 @@ public class WalletController {
 
     @GetMapping()
     public String getWalletListPage(){
-        return "main/wallet/wallet_list";
+        return "main/wallet/wallet_page";
     }
 }

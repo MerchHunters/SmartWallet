@@ -39,12 +39,12 @@ public class RegistrationController {
             registrationDataDTO.setPassword("123");
             registrationDataDTO.setPassword("123");
 
-            Long user_id = authorizationDataClient.sendDataRegistration(registrationDataDTO);
+            Long userId = authorizationDataClient.sendDataRegistration(registrationDataDTO);
 
 
-            log.info("Получили id юзера: {}", user_id);
+            log.info("Получили id юзера: {}", userId);
             log.info("всё прошло успешно");
-            model.addAttribute("user_id", user_id);
+            model.addAttribute("userId", userId);
             return "main/wallet";
 
 
