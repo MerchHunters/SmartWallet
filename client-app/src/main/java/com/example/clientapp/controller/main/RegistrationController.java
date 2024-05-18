@@ -37,9 +37,9 @@ public class RegistrationController {
             Long user_id = authorizationDataClient.sendDataRegistration(registrationDataDTO);
             log.info("Получили id юзера: {}", user_id);
             log.info("всё прошло успешно");
-//            model.addAttribute("user_id", user_id);
-//            return "main/wallet";
-            return null;
+            model.addAttribute("user_id", user_id);
+            return "main/wallet";
+//            return null;
         } catch (BadRequestException exception) {
             log.info("Что-то пошло не так при регистрации аккаунта");
             model.addAttribute("errors", exception.getErrors());
