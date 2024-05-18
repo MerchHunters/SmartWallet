@@ -4,6 +4,7 @@ package com.example.business.logic.controller;
 import com.example.business.logic.dto.RegistrationDataDTO;
 import com.example.business.logic.dto.ResponseDTO;
 import com.example.business.logic.exception.PasswordNotCorrectException;
+import com.example.business.logic.model.Wallet;
 import com.example.business.logic.service.ClientService;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
@@ -12,8 +13,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import java.util.Collection;
+
 @RestController
-//@RequestMapping("main/registration")
+@RequestMapping("main/registration")
 @Slf4j
 public class RegistryController {
 
@@ -42,12 +45,26 @@ public class RegistryController {
     }
 
 
-    @GetMapping("/main/getAllWallets")
-    public ResponseEntity<?> getAllWallets(@RequestParam Long clientId) {
+//    @GetMapping("/main/getAllWallets")
+//    public ResponseEntity<?> getAllWallets(@RequestParam Long clientId) {
+//
+//        Collection<Wallet> allWallets = clientService.getAllWallets(clientId);
+//        return ResponseEntity.ok(allWallets);
+//
+//    }
 
-        return ResponseEntity.ok(clientService.getAllWallets(clientId));
+
+    @GetMapping(/*"/main/getAllWallets"*/)
+    public Collection<Wallet> getAllWallets(@RequestParam("clientId") Long clientId) {
+
+        Collection<Wallet> allWallets = clientService.getAllWallets(clientId);
+        return allWallets;
 
     }
 
 
+//    @GetMapping
+//    public Long lds() {
+//        return 1L;
+//    }
 }

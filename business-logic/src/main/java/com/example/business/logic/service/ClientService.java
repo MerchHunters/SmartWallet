@@ -10,15 +10,19 @@ import org.springframework.stereotype.Service;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class ClientService {
 
     private final ClientRepository userRepository;
 
+    private final WalletService walletService;
+
     @Autowired
-    public ClientService(ClientRepository userRepository) {
-        this.userRepository = userRepository;
+    public ClientService(ClientRepository clientRepository, WalletService walletService) {
+        this.userRepository = clientRepository;
+        this.walletService = walletService;
     }
 
     public Client findByLoginAndPassword(String login, String password) {
@@ -37,7 +41,12 @@ public class ClientService {
 
     public Collection<Wallet> getAllWallets(Long clientId) {
 
-        return userRepository.findFirstById(clientId).getWallets();
+        Client firstById = userRepository.findFirstById(clientId);
+
+        Collection<Wallet> wallets = walletService.findByClientId(firstById.getId());
+
+//        Set<Wallet> wallets = firstById.getWallets();
+        return wallets;
 
     }
 }
