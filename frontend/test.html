@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <main>
+        <div class="container">
+    <h1>Список кошельков</h1>
+
+    <div th:if="${wallets.isEmpty()}">
+        <p>Кошельков нет.</p>
+    </div>
+
+    <table>
+        <tr>
+            <th>Название кошелька</th>
+            <!-- <th>Подробная информация</th> -->
+        </tr>
+        <tr th:each="wallet: ${wallet}">
+            <td th:text="${wallet.title}">Кошелёк</td>
+            
+        </tr>
+    </table>
+
+    <a data-th-href="@{/main/wallets/create}" class="add-button">
+        <i class="fas fa-plus"></i> Добавить Кошелёк
+    </a>
+</div>
+    </main>
+
+
+</html>
+
+
+
+
