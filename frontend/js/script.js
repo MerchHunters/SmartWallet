@@ -11,10 +11,13 @@ themeButton.onclick = function() {
 
 
 butt.onclick = function() {
-    var val1 = document.getElementById('password_chek1').value;
-    var val2 = document.getElementById('password_chek2').value;
-    if (val1 == val2) {
+    var log1 = document.getElementById('login_chek1').value;
+    var pas1 = document.getElementById('password_chek1').value;
+    var pas2 = document.getElementById('password_chek2').value;
+    if (pas1 == pas2 && pas1 != '' && log1 !=''){
         alert('Вы зарегистрировались');
+    } else if (pas1 == '' || log1 == ''){
+        alert('Поля пустые');
     } else{
         alert('Пароль не совпадает');
     }    
