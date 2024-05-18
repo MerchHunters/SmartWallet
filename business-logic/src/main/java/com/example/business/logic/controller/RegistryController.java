@@ -38,7 +38,7 @@ public class RegistryController {
             ));
         } catch (PasswordNotCorrectException e) {
             log.info("return not correct password!");
-            return ResponseEntity.badRequest().body(1);
+            return ResponseEntity.badRequest().body("1");
         }
 
     }

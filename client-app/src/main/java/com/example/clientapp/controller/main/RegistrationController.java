@@ -31,7 +31,7 @@ public class RegistrationController {
 //    }
 
     @PostMapping()
-    public String sendData(RegistrationDataDTO dto, Model model) {
+    public String sendRegistrationData(RegistrationDataDTO dto, Model model) {
         log.info(dto.toString());
         try {
             RegistrationDataDTO registrationDataDTO = new RegistrationDataDTO();
