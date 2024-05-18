@@ -98,6 +98,27 @@ button {
     padding: 10px;
 }
 
+.h2_index{
+    text-align: left;
+    padding-left: 5%;
+}
+
+.button_wallet{
+    position: relative;
+    margin-left: 5%;
+    padding: 2% 5% 2% 5%;
+}
+
+ol{
+    border: solid 10px;
+    border-radius: 5%/15%;
+}
+
+li{
+    margin-bottom: 2%;
+}
+
+
 /* #reportsContainer {
     /* CSS для отображения отчетов (графики, таблицы) */
 /* } */ 
