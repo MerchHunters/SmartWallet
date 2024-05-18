@@ -16,7 +16,6 @@ import org.springframework.web.util.UriComponentsBuilder;
 @RestController
 @RequestMapping("main/registration")
 @Slf4j
-
 public class RegistryController {
 
     private final UserService userService;
@@ -27,7 +26,7 @@ public class RegistryController {
     }
 
     @PostMapping
-    public Long postUserByDTO(@Valid @RequestBody RegistrationDataDTO dto,
+    public Long postUserByDTO(@RequestBody RegistrationDataDTO dto,
                               UriComponentsBuilder uriComponentsBuilder) {
 
         return userService.CreateByLoginAndPassword(
