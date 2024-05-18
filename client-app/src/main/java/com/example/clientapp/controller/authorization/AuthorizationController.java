@@ -12,7 +12,7 @@ public class AuthorizationController {
 
     @GetMapping()
     public String getAuthorizationPage(){
-        return "authorization/authorization_page";
+        return "authorization/base_login";
     }
 
 }

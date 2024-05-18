@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Умный бюджет</title>
+    <title>Вход</title>
     <style>.light-theme {
     color: #333333;
     background-color: #eae9f2;
@@ -101,60 +102,43 @@ button {
     padding: 10px;
 }
     </style>
+
 </head>
 <body class="page light-theme">
-<div class="container">
-    <header class="page-header">
-        <div class="container">
-            <button class="theme-button" type="button">Изменить тему</button>
-        </div>
+
+    <div class="container" >
+        <header class="page-header">
+            <div class="container">
+               <h1 style="width: 100%;">Страница входа
+                <a class="regist_button" type="button" style="top: 5%; width: 4%; margin-left: 27%; ">Вход</a>
+                <a class="regist_button" type="button" style="top: 10%; width: 6%; margin-left: 0%; ">Регистрация</a>
+                <button class="theme-button" type="button" style="top: 5%; width: 9%; margin-left: 0%;  padding: 2px 5px;">Тема</button>
+                </h1>
+            </div>
     </header>
-    <h1>Умный бюджет</h1>
+     <main>
+        <p class="auto_massage">Введите данные для входа</p>
+        <h2>Логин</h2>
+        <section class="h2"><input type="text" ></section>
+        <h2>Пароль</h2>
+        <section class="h2"><input id="password_chek" type="text" ></section>
+        <button id="butt" class="button subscription" type="submit"  style=" margin-left: 70%;">Войти</button>
+    </main>
 
-    <div class="wallets">
-        <h2>Кошельки</h2>
-      <a data-th-href="@{/main/wallet_list}">  <button id="addWalletBtn">Мои Кошельки</button>
-
-      </a>
-        <!-- <div id="walletsList">
-            </div> -->
     </div>
 
-    <div class="transactions">
-        <h2>Транзакции</h2>
-        <button id="addTransactionBtn">Посмотреть Транзакции</button>
-        <!-- <div id="transactionsList">
-            </div> -->
-    </div>
 
-    <!-- <div class="goals">
-        <h2>Цели</h2>
-        <button id="addGoalBtn">Добавить цель</button>
-        <div id="goalsList">
-            </div>
-    </div> -->
+    <script>
 
-    <div class="reports">
-        <h2>Отчеты</h2>
-        <button id="generateReportBtn">Сгенерировать отчет</button>
-        <!-- <div id="reportsContainer">
-            </div> -->
-    </div>
+        let page = document.querySelector('.page');
+    let themeButton = document.querySelector('.theme-button');
 
-    <!-- <div class="cashbacks">
-        <h2>Кэшбеки</h2>
-        <button id="addCashbackBtn">Добавить кэшбек</button>
-        <div id="cashbacksList">
-            </div>
-    </div> -->
-</div>
+    themeButton.onclick = function() {
+    page.classList.toggle('light-theme');
+    page.classList.toggle('dark-theme');
+    };
 
 
-<div class="user-id">
-    <label for="userId">ID пользователя:</label>
-    <input type="number" id="userId" name="userId">
-</div>
-
-
+    </script>
 </body>
 </html>
