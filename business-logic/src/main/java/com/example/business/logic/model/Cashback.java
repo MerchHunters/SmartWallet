@@ -21,7 +21,7 @@ public class Cashback {
 
     private String category;
 
-    private String percent;
+    private Float percent;
 
     @ManyToMany(mappedBy = "cashbackes")
     private Set<Wallet> walletSet;
