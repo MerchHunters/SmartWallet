@@ -26,11 +26,15 @@ public class RegistryController {
     }
 
     @PostMapping
-    public Long postUserByDTO(@RequestBody RegistrationDataDTO dto,
+    public ResponseEntity<?> postUserByDTO(@Valid @RequestBody RegistrationDataDTO dto,
                               UriComponentsBuilder uriComponentsBuilder) {
 
-        return userService.CreateByLoginAndPassword(
+
+
+
+        return ResponseEntity.ok(userService.CreateByLoginAndPassword(
                 dto.getLogin(), dto.getPassword()
-        );
+        ));
+
     }
 }
