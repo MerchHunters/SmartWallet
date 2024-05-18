@@ -5,7 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
+import java.util.Set;
 
 @Entity
 @Data
@@ -24,8 +24,13 @@ public class Wallet {
 
     private String description;
 
-   /* @Column(name = "is_archive")
-    private Boolean isArchive;*/
+    @Column(name = "is_archive")
+    private Boolean isArchive;
 
-//    private List<Object> cashbackes;
+    @ManyToMany
+    @JoinTable(
+            name = "cashbackes",
+            joinColumns = @JoinColumn(name = "wallet_id"),
+            inverseJoinColumns = @JoinColumn(name = "cashback_id"))
+    private Set<Cashback> cashbackes;
 }
