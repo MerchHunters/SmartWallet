@@ -3,17 +3,21 @@ package com.example.business.logic.service;
 
 import com.example.business.logic.exception.PasswordNotCorrectException;
 import com.example.business.logic.model.Client;
-import com.example.business.logic.repository.UserRepository;
+import com.example.business.logic.model.Wallet;
+import com.example.business.logic.repository.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service
-public class UserService {
+import java.util.Collection;
+import java.util.List;
 
-    private final UserRepository userRepository;
+@Service
+public class ClientService {
+
+    private final ClientRepository userRepository;
 
     @Autowired
-    public UserService(UserRepository userRepository) {
+    public ClientService(ClientRepository userRepository) {
         this.userRepository = userRepository;
     }
 
@@ -31,4 +35,9 @@ public class UserService {
         throw new PasswordNotCorrectException("Passwords not equals");
     }
 
+    public Collection<Wallet> getAllWallets(Long clientId) {
+
+        return userRepository.findFirstById(clientId).getWallets();
+
+    }
 }

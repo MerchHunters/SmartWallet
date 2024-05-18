@@ -4,37 +4,33 @@ package com.example.business.logic.controller;
 import com.example.business.logic.dto.RegistrationDataDTO;
 import com.example.business.logic.dto.ResponseDTO;
 import com.example.business.logic.exception.PasswordNotCorrectException;
-import com.example.business.logic.service.UserService;
+import com.example.business.logic.service.ClientService;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
 @RestController
-@RequestMapping("main/registration")
+//@RequestMapping("main/registration")
 @Slf4j
 public class RegistryController {
 
-    private final UserService userService;
+    private final ClientService clientService;
 
     @Autowired
-    public RegistryController(UserService userService) {
-        this.userService = userService;
+    public RegistryController(ClientService clientService) {
+        this.clientService = clientService;
     }
 
 
-
-    @PostMapping
+    @PostMapping("main/registration")
     public ResponseEntity<?> postUserByDTO(@Valid @RequestBody RegistrationDataDTO dto,
-                              UriComponentsBuilder uriComponentsBuilder) {
+                                           UriComponentsBuilder uriComponentsBuilder) {
 
         try {
-            return ResponseEntity.ok(userService.CreateByLoginAndPassword(
+            return ResponseEntity.ok(clientService.CreateByLoginAndPassword(
                     dto.getLogin(), dto.getPassword(), dto.getRepeatPassword()
             ));
         } catch (PasswordNotCorrectException e) {
@@ -44,4 +40,14 @@ public class RegistryController {
         }
 
     }
+
+
+    @GetMapping("/main/getAllWallets")
+    public ResponseEntity<?> getAllWallets(@RequestParam Long clientId) {
+
+        return ResponseEntity.ok(clientService.getAllWallets(clientId));
+
+    }
+
+
 }
