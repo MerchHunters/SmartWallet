@@ -26,6 +26,6 @@ public class WalletRestCLienService {
 
 
     public List<Wallet> findAllWallets() {
-      return restClient.get().uri("/main/getAllWallets?id=1").retrieve().body(WALLET_TYPE_REFERENCE);
+      return restClient.get().uri("main/registration?id=1").retrieve().body(WALLET_TYPE_REFERENCE);
     }
 }
