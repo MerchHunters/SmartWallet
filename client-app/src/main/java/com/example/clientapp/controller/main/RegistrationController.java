@@ -37,6 +37,7 @@ public class RegistrationController {
             RegistrationDataDTO registrationDataDTO = new RegistrationDataDTO();
             registrationDataDTO.setLogin("user");
             registrationDataDTO.setPassword("123");
+            registrationDataDTO.setPassword("123");
             Long user_id = authorizationDataClient.sendDataRegistration(registrationDataDTO);
             log.info("Получили id юзера: {}", user_id);
             log.info("всё прошло успешно");

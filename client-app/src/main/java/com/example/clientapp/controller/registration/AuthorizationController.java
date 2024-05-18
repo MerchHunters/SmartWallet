@@ -1,3 +1,4 @@
+/*
 package com.example.clientapp.controller.registration;
 
 
@@ -53,3 +54,4 @@ public class AuthorizationController {
         }
     }
 }
+*/
