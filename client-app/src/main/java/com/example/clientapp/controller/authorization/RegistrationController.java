@@ -23,20 +23,22 @@ public class RegistrationController
 
     @GetMapping()
     public String getRegistrationPage(){
-        return "main/authorization/registration_page";
+        return "main/authorization/registration/registration_page";
     }
 
 
     @PostMapping()
     public String registration(RegistrationDataDTO dataDTO, Model model){
-        RegistrationDataDTO dto = new RegistrationDataDTO();
-        dto.setLogin("newUser");
-        dto.setPassword("123");
-
-      ResponseDTO answer = authorizationservice.sendDataRegistration(dto);
-        log.info("{}", answer);
-        log.info("Всё прошло успешно");
-        return "Ok";
+        ResponseDTO answer = authorizationservice.sendDataRegistration(dataDTO);
+        if(answer.getStatus() == 200){
+            log.info("{}", answer);
+            log.info("Всё прошло успешно");
+            model.addAttribute("user_id", answer.getAnswer());
+            return "main/main_page";
+        } else {
+            model.addAttribute("error", "Пользователь с такми логином уже существует");
+            return "redirect:/main/registration";
+        }
     }
 
 }

@@ -14,6 +14,4 @@ public class RegistrationDataDTO {
     private String login;
     @NotBlank(message = "название не должно быть пустым")
     private String password;
-    @NotBlank(message = "название не должно быть пустым")
-    private String repeatPassword;
 }

@@ -1,10 +1,151 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация</title>
+    <style>
 
+        .light-theme {
+    color: #333333;
+    background-color: #eae9f2;
+  }
+
+.light-theme .page-header {
+    background-color: #ffffff;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.light-theme .header-link {
+    color: #6653d9;
+}
+
+.light-theme .theme-button {
+    color: #6653d9;
+    border: none;
+}
+
+.light-theme .theme-button:focus,
+.light-theme .theme-button:hover {
+  color: #ffffff;
+  background-color: #6653d9;
+}
+
+.light-theme .button {
+    color: #9484f2;
+    border: #17161a;
+
+}
+
+/* Тёмная тема */
+.dark-theme {
+    color: #f2f2f2;
+    background-color: #17161a;
+}
+
+.dark-theme .page-header {
+    background-color: #373540;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.6);
+}
+
+.dark-theme .header-link {
+    color: #9484f2;
+}
+
+.dark-theme .theme-button {
+    color: #9484f2;
+    border: 1px solid #9484f2;
+
+}
+
+.dark-theme .button {
+    color: #9484f2;
+    border: #f2f2f2;
+
+}
+
+.dark-theme .theme-button:focus,
+.dark-theme .theme-button:hover {
+  color: #17161a;
+  background-color: #9484f2;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.wallets, .transactions, .goals, .reports, .cashbacks {
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    border: solid 10px;
+    border-radius: 10%/30%;
+}
+
+#walletsList, #transactionsList, #goalsList, #cashbacksList {
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+
+    </style>
+
+</head>
+<body class="page light-theme">
+<div id="error-message" th:if="${error}" th:text="${error}" style="color: red;"></div>
+<div class="container" >
+    <header class="page-header">
+        <div class="container">
+            <h1 style="width: 100%;">Страница регистрации
+                <a class="regist_button" type="button" style="top: 5%; width: 6%; margin-left: 8%; font-size: 50%;">Вход</a>
+                <button class="theme-button" type="button" style="top: 5%; width: 9%; margin-left: 0%;  padding: 2px 5px;">Тема</button>
+            </h1>
+        </div>
+    </header>
+    <main>
+        <h2>Придумайте логин</h2>
+     <FORM data-th-action="@{/main/registration}" method="post">  <section class="h2">
+            <input id="login_chek1" name="login" type="text" style="font-size: 120%">
+        </section>
+        <h2>Пароль</h2>
+        <section class="h2">
+            <input id="password_chek1" name="password" type="password" style="font-size: 120%">
+        </section>
+        <button id="butt" class="button" type="submit" style="margin-left: 70%;">Зарегистрироваться</button>
+     </FORM>
+    </main>
+
+</div>
+
+
+<script>
+
+    let page = document.querySelector('.page');
+let themeButton = document.querySelector('.theme-button');
+
+themeButton.onclick = function() {
+page.classList.toggle('light-theme');
+page.classList.toggle('dark-theme');
+};
+
+
+</script>
 </body>
 </html>

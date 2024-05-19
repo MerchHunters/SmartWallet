@@ -10,9 +10,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-@RequestMapping("main/list")
+@RequestMapping("main/wallet/list/{user_id:\\%d}")
 public class WalletList {
 
 
@@ -25,8 +26,8 @@ public class WalletList {
     }
 
     @GetMapping
-    public String getWalletList(Model model){
-        model.addAttribute("wallets", walletRestCLienService.findAllWallets());
+    public String getWalletList(@RequestParam("user_id") Long id, Model model){
+        model.addAttribute("wallets", walletRestCLienService.findAllWallets(id));
         return "main/wallet/wallet_list_page";
     }
 

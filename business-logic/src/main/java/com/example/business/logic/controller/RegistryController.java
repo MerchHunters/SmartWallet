@@ -43,21 +43,20 @@ public class RegistryController {
 
         try {
             Long body = clientService.CreateByLoginAndPassword(
-                    dto.getLogin(), dto.getPassword(), dto.getRepeatPassword()
+                    dto.getLogin(), dto.getPassword()
             );
             ResponseDTO dataDTO = new ResponseDTO(200, body);
-            return ResponseEntity.ok(dataDTO);
-        } catch (PasswordNotCorrectException e) {
-            log.info("return not correct password!");
-            ResponseDTO dataDTO = new ResponseDTO(401, -1L);
             return ResponseEntity.ok(dataDTO);
         } catch (AlreadyThereIsLoginException e) {
             log.info("return other login");
             return ResponseEntity.ok(new ResponseDTO(402, -1L));
         }
-
     }
 
+    /* catch (PasswordNotCorrectException e) {
+            log.info("return not correct password!");
+            ResponseDTO dataDTO = new ResponseDTO(401, -1L);
+            return ResponseEntity.ok(dataDTO);*/
 
 //    @GetMapping("/main/getAllWallets")
 //    public ResponseEntity<?> getAllWallets(@RequestParam Long clientId) {

@@ -113,34 +113,24 @@
                     <th>Cashbacks</th>
                     <th>Transactions</th>
                 </tr>
+                <tr>
+                    <th>ID</th>
+                    <th>Client</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Is Archive</th>
+                    <th>Cashbacks</th>
+                    <th>Transactions</th>
+                </tr>
+
                 </thead>
                 <tbody id="walletTableBody">
                 <!-- Placeholder data, replace with actual data -->
-                <tr>
-                    <td>1</td>
-                    <td>Client 1</td>
-                    <td>Wallet 1</td>
-                    <td>Description 1</td>
-                    <td>No</td>
-                    <td>Cashback 1</td>
-                    <td>Transaction 1</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Client 2</td>
-                    <td>Wallet 2</td>
-                    <td>Description 2</td>
-                    <td>Yes</td>
-                    <td>Cashback 2</td>
-                    <td>Transaction 2</td>
-                </tr>
-                <tr th:each="flower: ${flowers}">
-                    <td th:text="${flower.title}">Цветок</td>
-                    <td th:text="${flower.price + ' руб.'}">Цена</td>
-                    <td th:text="${flower.extraCharge + ' руб.'}">Наценка</td>
-                    <td th:text="${flower.accountingQuantity}">Учётное количество</td>
-                    <td th:text="${flower.actualQuantity}">Фактическое количество</td>
-                    <td><a data-th-href="@{/main/flower/{flowerId}/info(flowerId=${flower.id})}" class="info-link">Подробнее</a></td>
+                <tr th:each="wallet: ${wallets}">
+                    <td th:text="${wallet.client}">Client</td>
+                    <td th:text="${wallet.name}">Client</td>
+                    <td th:text="${wallet.description}">description</td>
+
                 </tr>
                 </tbody>
             </table>

@@ -12,5 +12,4 @@ public class RegistrationDataDTO {
 
     private String login;
     private String password;
-    private String repeatPassword;
 }

@@ -30,7 +30,22 @@ public class ClientService {
         return userRepository.findByLoginAndPassword(login, password);
     }
 
-    public Long CreateByLoginAndPassword(String login, String password, String repeatPassword) {
+
+    public Long CreateByLoginAndPassword(String login, String password) {
+
+        if (!userRepository.findByLogin(login).isEmpty()) {
+            throw new AlreadyThereIsLoginException("такой логин уже есть");
+        }
+
+            Client user = new Client();
+            user.setLogin(login);
+            user.setPassword(password);
+            return userRepository.save(user).getId();
+
+    }
+
+
+/*    public Long CreateByLoginAndPassword(String login, String password, String repeatPassword) {
 
         if (userRepository.findByLogin(login).isEmpty()) {
             throw new AlreadyThereIsLoginException("такой логин уже есть");
@@ -43,7 +58,7 @@ public class ClientService {
             return userRepository.save(user).getId();
         }
         throw new PasswordNotCorrectException("Passwords not equals");
-    }
+    }*/
 
 
     public Collection<Wallet> getAllWallets(Long clientId) {
