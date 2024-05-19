@@ -34,7 +34,7 @@ public class RegistryController {
 
         try {
             return ResponseEntity.ok(clientService.CreateByLoginAndPassword(
-                    dto.getLogin(), dto.getPassword()
+                    dto.getLogin(), dto.getPassword(), dto.getRepeatPassword()
             ));
         } catch (PasswordNotCorrectException e) {
             log.info("return not correct password!");
