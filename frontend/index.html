@@ -4,27 +4,127 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Умный бюджет</title>
-    <link rel="stylesheet" href="css/style.css">
+    <style>.light-theme {
+    color: #333333;
+    background-color: #eae9f2;
+  }
+
+.light-theme .page-header {
+    background-color: #ffffff;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.light-theme .header-link {
+    color: #6653d9;
+}
+
+.light-theme .theme-button {
+    color: #6653d9;
+    border: none;
+}
+
+.light-theme .theme-button:focus,
+.light-theme .theme-button:hover {
+  color: #ffffff;
+  background-color: #6653d9;
+}
+
+.light-theme .button {
+    color: #9484f2;
+    border: #17161a;
+
+}
+
+/* Тёмная тема */
+.dark-theme {
+    color: #f2f2f2;
+    background-color: #17161a;
+}
+
+.dark-theme .page-header {
+    background-color: #373540;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.6);
+}
+
+.dark-theme .header-link {
+    color: #9484f2;
+}
+
+.dark-theme .theme-button {
+    color: #9484f2;
+    border: 1px solid #9484f2;
+
+}
+
+.dark-theme .button {
+    color: #9484f2;
+    border: #f2f2f2;
+
+}
+
+.dark-theme .theme-button:focus,
+.dark-theme .theme-button:hover {
+  color: #17161a;
+  background-color: #9484f2;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.wallets, .transactions, .goals, .reports, .cashbacks {
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    border: solid 10px;
+    border-radius: 10%/30%;
+}
+
+#walletsList, #transactionsList, #goalsList, #cashbacksList {
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+    </style>
 </head>
 <body class="page light-theme">
     <div class="container">
         <header class="page-header">
             <div class="container">
-              <button class="theme-button" type="button">Изменить тему</button>
+            <a class="regist_button" type="button" style="top: 0%; width: 6%; margin-left: 1%; font-size: 14px;" href="file:/Users/herob/Desktop/hackaton_2024_1705/SmartWallet/frontend/true_autorisaishen.html">Вход</a>   
+            <h1>Умный бюджет
+                <!-- <button class="theme-button" type="button">Изменить тему</button> -->
+            </h1>
+            
             </div>
           </header>
-        <h1>Умный бюджет</h1>
+        <!-- <h1>Умный бюджет</h1> -->
 
         <div class="wallets">
-            <h2>Кошельки</h2>
-            <button id="addWalletBtn">Мои Кошельки</button>
+            <h2 class="h2_index">Кошельки</h2>
+            <button id="addWalletBtn" class="button">Мои Кошельки</button>
             <!-- <div id="walletsList">
                 </div> -->
         </div>
 
         <div class="transactions">
-            <h2>Транзакции</h2>
-            <button id="addTransactionBtn">Посмотреть Транзакции</button>
+            <h2 class="h2_index" >Транзакции</h2>
+            <button id="addTransactionBtn" class="button">Посмотреть Транзакции</button>
             <!-- <div id="transactionsList">
                 </div> -->
         </div>
@@ -37,8 +137,8 @@
         </div> -->
 
         <div class="reports">
-            <h2>Отчеты</h2>
-            <button id="generateReportBtn">Сгенерировать отчет</button>
+            <h2 class="h2_index">Отчеты</h2>
+            <button id="generateReportBtn" class="button">Сгенерировать отчет</button>
             <!-- <div id="reportsContainer">
                 </div> -->
         </div>
@@ -51,6 +151,17 @@
         </div> -->
     </div>
 
-    <script src="js/script.js"></script>
+    <script>
+
+        let page = document.querySelector('.page');
+let themeButton = document.querySelector('.theme-button');
+
+themeButton.onclick = function() {
+  page.classList.toggle('light-theme');
+  page.classList.toggle('dark-theme');
+};
+
+
+    </script>
 </body>
 </html>
