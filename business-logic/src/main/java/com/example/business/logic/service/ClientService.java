@@ -1,6 +1,7 @@
 package com.example.business.logic.service;
 
 
+import com.example.business.logic.exception.AlreadyThereIsLoginException;
 import com.example.business.logic.exception.PasswordNotCorrectException;
 import com.example.business.logic.model.Client;
 import com.example.business.logic.model.Wallet;
@@ -30,6 +31,11 @@ public class ClientService {
     }
 
     public Long CreateByLoginAndPassword(String login, String password, String repeatPassword) {
+
+        if (userRepository.findByLogin(login).isEmpty()) {
+            throw new AlreadyThereIsLoginException("такой логин уже есть");
+        }
+
         if (password.equals(repeatPassword)) {
             Client user = new Client();
             user.setLogin(login);

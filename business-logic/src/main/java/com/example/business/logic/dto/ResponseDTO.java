@@ -15,6 +15,6 @@ public class ResponseDTO {
     @NotBlank(message = "название не должно быть пустым")
     private Integer status;
     @NotBlank(message = "название не должно быть пустым")
-    private Integer typeException;
+    private Long answer;
 
 }
