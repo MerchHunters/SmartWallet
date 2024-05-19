@@ -24,18 +24,18 @@ public class WalletList {
         this.walletRestCLienService = walletRestCLienService;
     }
 
-  /*  @GetMapping
+    @GetMapping
     public String getWalletList(Model model){
         model.addAttribute("wallets", walletRestCLienService.findAllWallets());
-        return "main/wallet_list_page";
-    }*/
+        return "main/wallet/wallet_list_page";
+    }
 
 
-    @GetMapping
+   /* @GetMapping
     public String testGetWallet(Model model){
         Wallet wallet = new Wallet();
         model.addAttribute("wallets", walletRestCLienService.findAllWallets());
         return "main/wallet_list_page";
-    }
+    }*/
 
 }

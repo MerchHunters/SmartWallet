@@ -1,4 +1,4 @@
-package com.example.business.logic.dto;
+package com.example.clientapp.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
@@ -7,10 +7,8 @@ import lombok.NoArgsConstructor;
 
 
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 public class ResponseDTO {
+
 
     private Integer status;
 

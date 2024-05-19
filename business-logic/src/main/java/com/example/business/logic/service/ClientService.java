@@ -39,6 +39,7 @@ public class ClientService {
         throw new PasswordNotCorrectException("Passwords not equals");
     }
 
+
     public Collection<Wallet> getAllWallets(Long clientId) {
 
         Client firstById = userRepository.findFirstById(clientId);

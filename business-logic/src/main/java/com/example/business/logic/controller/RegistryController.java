@@ -28,17 +28,17 @@ public class RegistryController {
     }
 
 
-    @PostMapping("main/registration")
+    @PostMapping()
     public ResponseEntity<?> postUserByDTO(@Valid @RequestBody RegistrationDataDTO dto,
                                            UriComponentsBuilder uriComponentsBuilder) {
 
         try {
             return ResponseEntity.ok(clientService.CreateByLoginAndPassword(
-                    dto.getLogin(), dto.getPassword(), dto.getRepeatPassword()
+                    dto.getLogin(), dto.getPassword()
             ));
         } catch (PasswordNotCorrectException e) {
             log.info("return not correct password!");
-            ResponseDTO dataDTO = new ResponseDTO(400, 1);
+            ResponseDTO dataDTO = new ResponseDTO(400, 1l);
             return ResponseEntity.badRequest().body(dataDTO);
         }
 

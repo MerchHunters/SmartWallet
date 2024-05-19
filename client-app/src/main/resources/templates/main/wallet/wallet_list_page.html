@@ -134,14 +134,13 @@
                     <td>Cashback 2</td>
                     <td>Transaction 2</td>
                 </tr>
-                
-                <tr th:each="wallet: ${wallets}">
-                    <td th:text="${wallet.client}">Клиент</td>
-                    <td th:text="${wallet.name}">Название</td>
-                    <td th:text="${wallet.description}">описание</td>
-                    <td th:text="${wallet.isArchive}">description</td>
-                    <td th:text="${wallet.cashbackes}">cashbackes</td>
-                    <td th:text="${wallet.cashbackes}">transactions</td>
+                <tr th:each="flower: ${flowers}">
+                    <td th:text="${flower.title}">Цветок</td>
+                    <td th:text="${flower.price + ' руб.'}">Цена</td>
+                    <td th:text="${flower.extraCharge + ' руб.'}">Наценка</td>
+                    <td th:text="${flower.accountingQuantity}">Учётное количество</td>
+                    <td th:text="${flower.actualQuantity}">Фактическое количество</td>
+                    <td><a data-th-href="@{/main/flower/{flowerId}/info(flowerId=${flower.id})}" class="info-link">Подробнее</a></td>
                 </tr>
                 </tbody>
             </table>

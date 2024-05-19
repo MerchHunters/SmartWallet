@@ -1,19 +1,16 @@
-package com.example.business.logic.dto;
+package com.example.clientapp.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ResponseDTO {
+public class RegistrationDataDTO {
 
-    private Integer status;
-
-    private Long answer;
-
+    private String login;
+    private String password;
+    private String repeatPassword;
 }
