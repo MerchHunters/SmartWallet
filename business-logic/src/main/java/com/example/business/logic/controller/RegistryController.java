@@ -31,19 +31,17 @@ public class RegistryController {
     /**
      *
      * @param dto
-     * @param uriComponentsBuilder
      * @return все хорошо - dto (200, clientId) <br>
      * пароль уже есть - (401, -1L)<br>
      * уже логин есть - (402, -1L)
      */
 
     @PostMapping("/registration")
-    public ResponseEntity<?> postUserByDTO(@Valid @RequestBody RegistrationDataDTO dto,
-                                           UriComponentsBuilder uriComponentsBuilder) {
+    public ResponseEntity<?> postUserByDTO(@Valid @RequestBody RegistrationDataDTO dto) {
 
         try {
             Long body = clientService.CreateByLoginAndPassword(
-                    dto.getLogin(), dto.getPassword(), dto.getRepeatPassword()
+                    dto.getLogin(), dto.getPassword()
             );
             ResponseDTO dataDTO = new ResponseDTO(200, body);
             return ResponseEntity.ok(dataDTO);

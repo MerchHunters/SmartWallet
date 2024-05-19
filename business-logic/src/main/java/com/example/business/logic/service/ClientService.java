@@ -10,8 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
-import java.util.List;
-import java.util.Set;
 
 @Service
 public class ClientService {
@@ -30,19 +28,19 @@ public class ClientService {
         return userRepository.findByLoginAndPassword(login, password);
     }
 
-    public Long CreateByLoginAndPassword(String login, String password, String repeatPassword) {
+    public Long CreateByLoginAndPassword(String login, String password) {
 
-        if (userRepository.findByLogin(login).isEmpty()) {
+        if (!userRepository.findByLogin(login).isEmpty()) {
             throw new AlreadyThereIsLoginException("такой логин уже есть");
         }
 
-        if (password.equals(repeatPassword)) {
+//        if (password.equals(repeatPassword)) {
             Client user = new Client();
             user.setLogin(login);
             user.setPassword(password);
             return userRepository.save(user).getId();
-        }
-        throw new PasswordNotCorrectException("Passwords not equals");
+//        }
+//        throw new PasswordNotCorrectException("Passwords not equals");
     }
 
     public Collection<Wallet> getAllWallets(Long clientId) {
