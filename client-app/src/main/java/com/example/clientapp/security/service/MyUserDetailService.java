@@ -17,10 +17,9 @@ public class MyUserDetailService implements UserDetailsService {
 
     public final MyUserService service;
 
-    public final PasswordEncoder passwordEncoder;
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
            MyUser user = service.findByUser(username);
-           return User.builder().username(user.getUsername()).password(passwordEncoder.encode(user.getUsername())).roles(user.getRole()).build();
+           return User.builder().username(user.getUsername()).password(user.getPassword()).roles(user.getRole()).build();
     }
 }
