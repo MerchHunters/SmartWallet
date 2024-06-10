@@ -23,7 +23,7 @@ public class SecurityConfiguration {
 
     private final MyUserDetailService myUserDetailService;
     public final PasswordEncoder passwordEncoder;
-    
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
         return http.csrf(AbstractHttpConfigurer::disable)
