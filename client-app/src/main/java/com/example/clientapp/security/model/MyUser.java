@@ -1,4 +1,4 @@
-package com.example.clientapp.security.config.model;
+package com.example.clientapp.security.model;
 
 
 import jakarta.persistence.*;
