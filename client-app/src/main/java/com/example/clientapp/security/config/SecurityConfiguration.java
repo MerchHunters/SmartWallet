@@ -32,7 +32,10 @@ public class SecurityConfiguration {
             authorize.requestMatchers("/registration").permitAll();
             authorize.anyRequest().authenticated();
         })
-                .formLogin(AbstractAuthenticationFilterConfigurer::permitAll)
+                .formLogin(httpSecurityFormLoginConfigurer -> {
+                    httpSecurityFormLoginConfigurer.loginPage("/main/true_autorisaishen")
+                            .permitAll();
+                })
                 .build();
     }
     @Bean
