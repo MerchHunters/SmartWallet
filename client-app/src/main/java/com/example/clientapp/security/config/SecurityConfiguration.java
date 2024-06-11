@@ -9,10 +9,8 @@ import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configurers.AbstractAuthenticationFilterConfigurer;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
@@ -30,11 +28,12 @@ public class SecurityConfiguration {
         return http.csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests( authorize ->{
             authorize.requestMatchers("/registration").permitAll();
+            authorize.requestMatchers("/main/**").hasRole("USER");
             authorize.anyRequest().authenticated();
         })
                 .formLogin(httpSecurityFormLoginConfigurer -> {
-                    httpSecurityFormLoginConfigurer.loginPage("/main/true_autorisaishen")
-                            .permitAll();
+                    httpSecurityFormLoginConfigurer.loginPage("/login").failureUrl("/login?error=true").permitAll();
+                    httpSecurityFormLoginConfigurer.defaultSuccessUrl("/main",true);
                 })
                 .build();
     }
